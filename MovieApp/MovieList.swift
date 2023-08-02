@@ -28,4 +28,14 @@ class MovieList {
         let title = movieTitles[Int.random(in: 0..<movieTitles.count)]
         self.list.append(Movie(title: title))
     }
+    
+    func deleteMovie(index: IndexPath) {
+        list.remove(at: index.row)
+    }
+    
+    func modifyMovies(from: IndexPath, to: IndexPath) {
+        let fromData = list[from.row]
+        list.remove(at: from.row)
+        list.insert(fromData, at: to.row)
+    }
 }
