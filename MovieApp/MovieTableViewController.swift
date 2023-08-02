@@ -41,7 +41,12 @@ class MovieTableViewController: UITableViewController {
         return cell
     }
     
-
+    @IBAction func addMovies(_ sender: UIButton) {
+        movieList.addMovies()
+        let index = IndexPath(row: (movieList.list.count - 1), section: 0)
+        tableView.insertRows(at: [index], with: .left)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -50,7 +55,7 @@ class MovieTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -60,7 +65,7 @@ class MovieTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
