@@ -56,6 +56,19 @@ class MovieTableViewController: UITableViewController {
     */
 
     
+    
+    @IBAction func editClicked(_ sender: UIButton) {
+        if isEditing {
+                    setEditing(false, animated: true)
+                    sender.setTitle("Edit", for: .normal)
+                } else {
+                    sender.setTitle("Done", for: .normal)
+                    setEditing(true, animated: true)
+                }
+                
+                tableView.reloadData()
+    }
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
